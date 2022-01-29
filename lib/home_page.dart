@@ -1,0 +1,20 @@
+import 'package:flutter/material.dart';
+
+// ignore: camel_case_types
+class home_page extends StatelessWidget {
+  final int Days = 30;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('CatalogApp'),
+        ),
+        body: Center(
+          child: Container(
+            child: Text(
+                'this is a tutorial application for just practising for $Days days'),
+          ),
+        ),
+        drawer: Drawer());
+  }
+}
