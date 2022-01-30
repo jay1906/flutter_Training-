@@ -12,7 +12,12 @@ class home_page extends StatelessWidget {
         body: Center(
           child: Container(
             child: Text(
-                'this is a tutorial application for just practising for $Days days'),
+              'this is a tutorial application for just practising for $Days days',
+              style: TextStyle(
+                  color: Colors.blueAccent,
+                  fontSize: 23,
+                  fontWeight: FontWeight.w400),
+            ),
           ),
         ),
         drawer: Drawer());
