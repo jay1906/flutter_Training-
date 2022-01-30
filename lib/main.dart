@@ -14,11 +14,11 @@ class myapp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme: ThemeData(primarySwatch: Colors.deepPurple),
-      initialRoute: "/home",
+      initialRoute: "/login",
       routes: {
-        "/": (context) => login_page(),
-        "/home": (context) => home_page(),
-        "/login": (context) => login_page(),
+        "/": (context) => LoginPage(),
+        "/home": (context) => HomePage(),
+        "/login": (context) => LoginPage(),
       },
     );
   }

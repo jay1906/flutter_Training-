@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
-class home_page extends StatelessWidget {
+class HomePage extends StatelessWidget {
   final int Days = 30;
   @override
   Widget build(BuildContext context) {
