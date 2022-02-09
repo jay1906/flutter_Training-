@@ -3,12 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:my_app/home_page.dart';
 
 class MyDrawer extends StatelessWidget {
-  get assests => null;
-
-  get images => null;
-
   @override
   Widget build(BuildContext context) {
+    final imageUrl = "https://www.nawpic.com/media/2020/luffy-nawpic-9.jpg";
     return Drawer(
       child: Container(
         color: Colors.deepPurple,
@@ -16,19 +13,21 @@ class MyDrawer extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-                padding: EdgeInsets.zero,
-                child: UserAccountsDrawerHeader(
-                  decoration: BoxDecoration(),
-                  margin: EdgeInsets.zero,
-                  accountName: Text(
-                    "Jay Dave",
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  accountEmail: Text("jayd72059@gmail.com"),
-                  currentAccountPicture: CircleAvatar(
-                      radius: 50,
-                      backgroundImage: AssetImage("assests/images/luffy1.png")),
-                )),
+              padding: EdgeInsets.zero,
+              child: UserAccountsDrawerHeader(
+                decoration: BoxDecoration(),
+                margin: EdgeInsets.zero,
+                accountName: Text(
+                  "Jay Dave",
+                  style: TextStyle(fontSize: 18),
+                ),
+                accountEmail: Text("jayd72059@gmail.com"),
+                currentAccountPicture: CircleAvatar(
+                  radius: 50,
+                  backgroundImage: NetworkImage(imageUrl),
+                ),
+              ),
+            ),
             ListTile(
               leading: Icon(
                 CupertinoIcons.home,
