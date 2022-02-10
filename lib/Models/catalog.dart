@@ -1,30 +1,35 @@
+import 'package:flutter/foundation.dart';
+
 class Catalogmodel {
-  static final items = [
-    Item(
-      id: "maharshi001",
-      name: "iphone 12 pro max",
-      description: "Apple Iphone 12th genration",
-      price: 1200,
-      color: "#507b4f",
-      image:
-          "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-blue-select-2020?wid=470&hei=556&fmt=jpeg&qlt=95&.v=1604343704000",
-    ),
-  ];
+  static List<Item> items = [];
 }
 
 class Item {
-  final String id;
+  final num id;
   final String name;
-  final String description;
+  final String desc;
   final num price;
   final String color;
   final String image;
 
-  Item(
-      {this.id,
-      this.name,
-      this.description,
-      this.price,
-      this.color,
-      this.image});
+  Item({this.id, this.name, this.desc, this.price, this.color, this.image});
+
+  factory Item.frommap(Map<String, dynamic> map) {
+    return Item(
+      id: map["id"],
+      name: map["name"],
+      desc: map["desc"],
+      price: map["price"],
+      color: map["color"],
+      image: map["image"],
+    );
+  }
+  toMap() => {
+        "id": id,
+        "name": name,
+        "desc": desc,
+        "price": price,
+        "color": color,
+        "image": image,
+      };
 }

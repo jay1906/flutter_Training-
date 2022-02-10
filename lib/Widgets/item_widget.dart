@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:my_app/Models/catalog.dart';
 
@@ -24,7 +22,7 @@ class ItemWidget extends StatelessWidget {
           ),
         ),
         title: Text(item.name),
-        subtitle: Text(item.description),
+        subtitle: Text(item.desc),
         trailing: Text(
           "\$${item.price}",
           textScaleFactor: 1.2,
