@@ -46,11 +46,38 @@ class _HomePageState extends State<HomePage> {
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: (Catalogmodel.items != null && Catalogmodel.items.isNotEmpty)
-              ? ListView.builder(
-                  itemCount: Catalogmodel.items.length,
+              ? GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 20,
+                      crossAxisSpacing: 10),
                   itemBuilder: (context, index) {
-                    return ItemWidget(item: Catalogmodel.items[index]);
+                    final Item = Catalogmodel.items[index];
+                    return Card(
+                        clipBehavior: Clip.antiAlias,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        child: GridTile(
+                          header: Container(
+                            child: Text(
+                              Item.name,
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(color: Colors.deepPurple),
+                          ),
+                          child: Image.network(Item.image),
+                          footer: Container(
+                            child: Text(
+                              Item.price.toString(),
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            padding: EdgeInsets.all(16),
+                            decoration: BoxDecoration(color: Colors.black),
+                          ),
+                        ));
                   },
+                  itemCount: Catalogmodel.items.length,
                 )
               : Center(
                   child: CircularProgressIndicator(),
