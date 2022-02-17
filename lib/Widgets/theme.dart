@@ -16,4 +16,8 @@ class Mytheme {
           centerTitle: true));
 
   static ThemeData get darktheme => ThemeData(brightness: Brightness.dark);
+
+  //colors
+  static Color creamcolor = Color(0xfff5f5f5);
+  static Color darkbluishcolor = Color(0xff403b58);
 }
