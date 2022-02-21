@@ -4,6 +4,9 @@ import 'dart:convert';
 import 'package:my_app/Models/catalog.dart';
 import 'package:my_app/Widgets/theme.dart';
 
+import 'home_widgets/catalog_header.dart';
+import 'home_widgets/catalog_list.dart';
+
 // ignore: camel_case_types
 class HomePage extends StatefulWidget {
   @override
@@ -37,7 +40,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Mytheme.creamcolor,
       // appBar: AppBar(
       //   centerTitle: false,
       //   title: Text(
@@ -55,11 +58,8 @@ class _HomePageState extends State<HomePage> {
           if (Catalogmodel.items != null && Catalogmodel.items.isNotEmpty)
             CatalogList()
           else
-            Center(
-              child: Container(
-                alignment: Alignment.center,
-                child: CircularProgressIndicator(),
-              ),
+            Expanded(
+              child: Center(child: CircularProgressIndicator()),
             ),
         ],
       ),
@@ -67,46 +67,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class CatlogHeader extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        AppBar(
-          centerTitle: false,
-          title: Text(
-            "Catalog App",
-          ),
-          titleTextStyle: TextStyle(fontSize: 28, color: Colors.black),
-        ),
-        Container(
-          alignment: Alignment.center,
-          child: Text(
-            'Trending Items',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class CatalogList extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-          shrinkWrap: true,
-          itemCount: Catalogmodel.items.length,
-          itemBuilder: (context, index) {
-            final catalog = Catalogmodel.items[index];
-            return catalogitem(catalog: catalog);
-          }),
-    );
-  }
-}
-
+// ignore: camel_case_types
 class catalogitem extends StatelessWidget {
   final Item catalog;
 
@@ -122,24 +83,30 @@ class catalogitem extends StatelessWidget {
       // padding: EdgeInsets.all(5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Mytheme.creamcolor,
+        color: Colors.white,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Container(
-            decoration: BoxDecoration(
-                color: Mytheme.creamcolor,
-                borderRadius: BorderRadius.circular(10)),
-            child: Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.network(
-                  catalog.image,
-                  width: 100,
-                  height: 100,
-                  fit: BoxFit.fill,
+          Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Mytheme.creamcolor,
+                  borderRadius: BorderRadius.circular(10)),
+              child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Hero(
+                    tag: Key(catalog.id.toString()),
+                    child: Image.network(
+                      catalog.image,
+                      width: 65,
+                      height: 65,
+                      // fit: BoxFit.fill,
+                    ),
+                  ),
                 ),
               ),
             ),
