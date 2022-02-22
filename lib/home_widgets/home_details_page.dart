@@ -13,14 +13,39 @@ class homedetailpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: ButtonBar(
+        buttonPadding: EdgeInsets.all(12),
+        alignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            '\$ ${catalog.price.toString()}',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Colors.redAccent),
+          ),
+          SizedBox(
+            height: 40,
+            width: 70,
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Colors.blueGrey.shade600,
+                    ),
+                    shape: MaterialStateProperty.all(StadiumBorder())),
+                child: Text('Buy')),
+          )
+        ],
+      ),
       appBar: AppBar(),
       backgroundColor: Mytheme.creamcolor,
       body: Center(
         child: Column(
           children: [
             Container(
-              height: 400,
-              width: 450,
+              // height: 400,
+              // width: 450,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
