@@ -75,6 +75,8 @@ class homedetailpage extends StatelessWidget {
                 style: Theme.of(context).textTheme.caption.merge(
                       TextStyle(fontSize: 15),
                     )),
+            Text(
+                'In theory, the iPhone 12, iPhone 12 Pro and iPhone 12 Pro Max should be equally competent in day light. The pro iPhones should be better at low light with the max being pitched as a photography powerhouse and quite rightfully so. Real world stats are close')
           ],
         ),
       ),
