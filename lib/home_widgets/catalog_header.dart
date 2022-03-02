@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CatlogHeader extends StatelessWidget {
   @override
@@ -7,19 +8,31 @@ class CatlogHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppBar(
-          centerTitle: false,
-          title: Text(
-            "Catalog App",
+        Padding(
+          padding: const EdgeInsets.all(.0),
+          child: AppBar(
+            backgroundColor: Colors.transparent,
+            foregroundColor: Colors.transparent,
+            centerTitle: false,
+            title: Text(
+              "Catalog App",
+            ),
+            titleTextStyle: TextStyle(
+                fontStyle: GoogleFonts.abrilFatface().fontStyle,
+                fontSize: 40,
+                color: Colors.black,
+                fontWeight: FontWeight.bold),
           ),
-          titleTextStyle: TextStyle(
-              fontSize: 28, color: Colors.black, fontWeight: FontWeight.bold),
         ),
-        Container(
-          alignment: Alignment.center,
-          child: Text(
-            'Trending Items',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Container(
+            alignment: Alignment.topLeft,
+            padding: EdgeInsets.only(left: 20),
+            child: Text(
+              'Trending Items',
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
           ),
         ),
       ],

@@ -17,16 +17,19 @@ class homedetailpage extends StatelessWidget {
         buttonPadding: EdgeInsets.all(12),
         alignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            '\$ ${catalog.price.toString()}',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.redAccent),
+          Padding(
+            padding: const EdgeInsets.all(14.0),
+            child: Text(
+              '\$ ${catalog.price.toString()}',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.redAccent),
+            ),
           ),
           SizedBox(
-            height: 40,
-            width: 70,
+            height: 50,
+            width: 120,
             child: ElevatedButton(
                 onPressed: () {},
                 style: ButtonStyle(
@@ -34,7 +37,7 @@ class homedetailpage extends StatelessWidget {
                       Colors.blueGrey.shade600,
                     ),
                     shape: MaterialStateProperty.all(StadiumBorder())),
-                child: Text('Buy')),
+                child: Text('Add to cart')),
           )
         ],
       ),
@@ -44,23 +47,20 @@ class homedetailpage extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              // height: 400,
-              // width: 450,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(50),
-                    bottomRight: Radius.circular(50)),
-              ),
-              child: Hero(
-                  tag: Key(catalog.id.toString()),
-                  child: Image(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(
-                      catalog.image,
-                    ),
-                  )),
-            ),
+                height: 300,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(50),
+                      bottomRight: Radius.circular(50)),
+                ),
+                child: Hero(
+                    tag: Key(catalog.id.toString()),
+                    child: Image(
+                      fit: BoxFit.fitHeight,
+                      image: NetworkImage(catalog.image, scale: 4),
+                    ))),
             Padding(
               padding: const EdgeInsets.only(top: 15),
               child: Text(
@@ -73,10 +73,15 @@ class homedetailpage extends StatelessWidget {
             ),
             Text(catalog.desc,
                 style: Theme.of(context).textTheme.caption.merge(
-                      TextStyle(fontSize: 15),
+                      TextStyle(fontSize: 18),
                     )),
-            Text(
-                'In theory, the iPhone 12, iPhone 12 Pro and iPhone 12 Pro Max should be equally competent in day light. The pro iPhones should be better at low light with the max being pitched as a photography powerhouse and quite rightfully so. Real world stats are close')
+            Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: Text(
+                'In theory, the iPhone 12, iPhone 12 Pro and iPhone 12 Pro Max should be equally competent in day light. The pro iPhones should be better at low light with the max being pitched as a photography powerhouse and quite rightfully so. Real world stats are close',
+                style: TextStyle(fontSize: 18),
+              ),
+            ),
           ],
         ),
       ),

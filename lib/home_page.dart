@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:my_app/Models/catalog.dart';
+import 'package:my_app/Widgets/cart_page.dart';
 import 'package:my_app/Widgets/theme.dart';
+import 'package:my_app/utils/routes.dart';
 
 import 'home_widgets/catalog_header.dart';
 import 'home_widgets/catalog_list.dart';
@@ -41,6 +44,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Mytheme.creamcolor,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, Myroutes.cartroutes),
+        backgroundColor: Mytheme.darkbluishcolor,
+        child: Icon(CupertinoIcons.cart),
+      ),
       // appBar: AppBar(
       //   centerTitle: false,
       //   title: Text(
@@ -78,7 +86,7 @@ class catalogitem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+      margin: EdgeInsets.symmetric(vertical: 15, horizontal: 23),
       width: double.infinity,
       // padding: EdgeInsets.all(5),
       decoration: BoxDecoration(
@@ -144,7 +152,7 @@ class catalogitem extends StatelessWidget {
                               Colors.blueGrey.shade600,
                             ),
                             shape: MaterialStateProperty.all(StadiumBorder())),
-                        child: Text('Buy'))
+                        child: Text('Add to Cart'))
                   ],
                 ),
               )
