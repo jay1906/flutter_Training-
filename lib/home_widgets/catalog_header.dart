@@ -9,7 +9,7 @@ class CatlogHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.all(.0),
+          padding: const EdgeInsets.all(8.0),
           child: AppBar(
             backgroundColor: Colors.transparent,
             foregroundColor: Colors.transparent,
@@ -25,7 +25,7 @@ class CatlogHeader extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(4.0),
           child: Container(
             alignment: Alignment.topLeft,
             padding: EdgeInsets.only(left: 20),

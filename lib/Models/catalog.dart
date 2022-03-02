@@ -2,6 +2,11 @@ import 'package:flutter/foundation.dart';
 
 class Catalogmodel {
   static List<Item> items = [];
+
+  static Item getbyId(int id) =>
+      items.firstWhere((element) => true, orElse: null);
+
+  static Item getbyposition(int pos) => items[pos];
 }
 
 class Item {
