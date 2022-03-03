@@ -18,10 +18,10 @@ class MyDrawer extends StatelessWidget {
                 decoration: BoxDecoration(),
                 margin: EdgeInsets.zero,
                 accountName: Text(
-                  "Jay Dave",
+                  "Jil patel",
                   style: TextStyle(fontSize: 18),
                 ),
-                accountEmail: Text("jayd72059@gmail.com"),
+                accountEmail: Text("jilpatel0511@gmail.com"),
                 currentAccountPicture: CircleAvatar(
                   radius: 50,
                   backgroundImage: NetworkImage(imageUrl),
